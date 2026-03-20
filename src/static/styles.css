@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
 /* Color palette */
 :root {
   /* Primary colors */
@@ -30,17 +32,21 @@
   --error-light: #ffebee;
   --info: #0c5460;
   --info-light: #d1ecf1;
+
+  --highlight: #0b7a75;
+  --highlight-soft: #dff6f4;
+  --ink-strong: #11203f;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Manrope", sans-serif;
   line-height: 1.4;
   color: var(--text-primary);
   max-width: 1200px;
@@ -666,9 +672,205 @@ footer {
 }
 
 .announcement-banner {
-  background-color: var(--success);
+  background: linear-gradient(120deg, #0b7a75 0%, #0f5a9c 60%, #26408b 100%);
   color: white;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 24px rgba(17, 32, 63, 0.2);
+  overflow: hidden;
+}
+
+.announcement-banner-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.announcement-icon {
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.announcement-banner-messages {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.announcement-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+}
+
+.announcement-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.announcement-item p {
+  font-weight: 600;
+  margin: 0;
+}
+
+.announcement-expiry {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+}
+
+#manage-announcements-button {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+#manage-announcements-button:hover {
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.announcement-manager-content {
+  max-width: 760px;
+  width: min(92vw, 760px);
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 14px;
+}
+
+.announcement-subtitle {
+  color: var(--text-secondary);
+  margin-top: -6px;
+  margin-bottom: 12px;
+}
+
+.announcement-form {
+  background: linear-gradient(180deg, #f7fbff 0%, #eef6ff 100%);
+  border: 1px solid #d8e9ff;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.announcement-form textarea,
+.announcement-form input[type="datetime-local"] {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  background: white;
+}
+
+.announcement-form textarea:focus,
+.announcement-form input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #69a7f2;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.announcement-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.announcement-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.secondary-button {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.secondary-button:hover {
+  background: #d1d5db;
+}
+
+.announcement-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.announcement-admin-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.announcement-admin-message {
+  font-size: 0.9rem;
+  color: var(--ink-strong);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.announcement-admin-dates {
+  margin: 2px 0;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.announcement-admin-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.announcement-edit-button {
+  background: #0f5a9c;
+}
+
+.announcement-edit-button:hover {
+  background: #0b4578;
+}
+
+.announcement-delete-button {
+  background: #b42318;
+}
+
+.announcement-delete-button:hover {
+  background: #8f1a12;
+}
+
+.empty-announcements {
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 14px;
   text-align: center;
-  padding: 15px;
-  font-weight: bold;
+  color: var(--text-secondary);
+  background: #fcfcfd;
+}
+
+@media (max-width: 767px) {
+  .announcement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .announcement-actions {
+    justify-content: stretch;
+  }
+
+  .announcement-actions button {
+    flex: 1;
+  }
+
+  #user-controls {
+    position: static;
+    margin-top: 12px;
+  }
+
+  #user-status {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
 }
